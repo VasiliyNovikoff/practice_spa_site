@@ -1,0 +1,25 @@
+<div class="card my-4">
+    <h5 class="card-header">Прокомментируй:</h5>
+    {% if user.is_authenticated %}
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ comment_form.text }}
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
+    {% else %}
+    <h6 class="card-header"><a href="{% url 'signin' %}">Авторизуйтесь</a> или <a href="{% url 'signup' %}">зарегистрируйтесь</a> чтобы оставить комментарий</h6>
+    {% endif %}
+</div>
+{% for comment in post.comments.all %}
+<div class="media mb-4">
+    <img class="d-flex mr-3 rounded-circle" src="https://cdn.dribbble.com/users/56874/screenshots/1504502/rick-_rick-and-morty-cartoon_-pixel-art-by-dimaaaa-400_300_still.gif?compress=1&resize=400x300" alt="">
+    <div class="media-body">
+        <h5 class="mt-0">{{comment.username}}</h5>
+        {{comment.text}}
+    </div>
+</div>
+{% endfor %}
