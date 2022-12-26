@@ -117,6 +117,7 @@ class PostDetailView(View):
             'comment_form': comment_form
         })
 
+
 class SignUpView(View):
     def get(self, request, *args, **kwargs):
         form = SigUpForm()
