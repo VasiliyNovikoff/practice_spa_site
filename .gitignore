@@ -2,3 +2,6 @@
 .DS_Store
 .nuxt
 .venv
+NuxtJS/venv
+NuxtJS/my_nuxtjs_blog/.nuxt
+NuxtJS/my_nuxtjs_blog/node_modules
